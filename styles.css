@@ -7,7 +7,7 @@ body {
 .main{
 	width: 800;
 	height: 450;
-	background-color: rgba(255,255,255,0.8);
+	background-color: #37474fcc;
 	
 	position: absolute;
     top:0;
@@ -46,7 +46,6 @@ body {
 .panel{
 	width:50%;
 	height:100%;
-	background:blue;
 	
 	position: absolute;
     top:0;
@@ -56,7 +55,25 @@ body {
 	
 }
 
+.panel#player1{
+	left:50%;
+}
+
 .p_element{
 	text-align:center;
 	
+}
+
+.p_current{
+	width: 100;
+	height: 100;
+	background-color: #607d8b;
+	
+	position: absolute;
+    top:150;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	
+	margin:auto;
 }
