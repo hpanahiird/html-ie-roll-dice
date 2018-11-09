@@ -2,12 +2,13 @@ body {
 	background-image: url("img/back.jpg");
 	background-repeat: no-repeat;
 	background-size: 100%;
+	color: #f7b633;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .main{
 	width: 800;
 	height: 450;
-	background-color: #37474fcc;
 	
 	position: absolute;
     top:0;
@@ -55,19 +56,27 @@ body {
 	
 }
 
+.panel#player0{
+	background-color: #90a4aef2;
+}
+
 .panel#player1{
+	background-color: #607d8bf2;
 	left:50%;
 }
 
 .p_element{
 	text-align:center;
-	
+}
+
+.p_name{
+	font-size:50;
 }
 
 .p_current{
 	width: 100;
 	height: 100;
-	background-color: #607d8b;
+	background-color: #37474f;
 	
 	position: absolute;
     top:150;
