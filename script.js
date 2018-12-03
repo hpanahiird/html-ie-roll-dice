@@ -8,17 +8,19 @@ function Player(){
     this.current = 0;
 }
 
-var player0 = new Player();
-var player1 = new Player();
+var player0;
+var player1;
 var current_player;
 
 function init(){
-    
+    player0 = new Player();
+    player1 = new Player();
     img_dice.style.display="none";
     turn = 0;
     current_player = player0;
     document.getElementById("player1").style.backgroundColor="#607d8bf2"
     document.getElementById("player0").style.backgroundColor="#90a4aef2"
+    game_ended = false;
 }
 
 function changeTurn(){
@@ -38,7 +40,6 @@ function changeTurn(){
     }
 }
 
-init();
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -100,6 +101,21 @@ function updateUI(){
     
 }
 
+function newGame(){
+    if(game_ended)
+        init();
+    else{
+        if(confirm("Do you really want to play a new game?")){
+            init();
+        }
+        else{
+            
+        }
+    }
+    updateUI();
+}
 
+init();
 document.getElementById("hold").onclick=hold;
 document.getElementById("roll").onclick=roll;
+document.getElementById("new_game").onclick=newGame;
