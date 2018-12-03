@@ -1,7 +1,8 @@
 var img_dice = document.getElementById("img_dice");
 
 var turn;
-var game_ended = false;
+var game_ended = true;
+var win_score
 
 function Player(){
     this.total = 0;
@@ -20,6 +21,10 @@ function init(){
     current_player = player0;
     document.getElementById("player1").style.backgroundColor="#607d8bf2"
     document.getElementById("player0").style.backgroundColor="#90a4aef2"
+    do{
+        win_score = parseInt(document.getElementById("win_score").value,10);
+    }while(win_score===0);
+    console.log("i am here");
     game_ended = false;
 }
 
@@ -115,7 +120,7 @@ function newGame(){
     updateUI();
 }
 
-init();
+img_dice.style.display="none";
 document.getElementById("hold").onclick=hold;
 document.getElementById("roll").onclick=roll;
 document.getElementById("new_game").onclick=newGame;
