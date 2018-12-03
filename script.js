@@ -21,10 +21,14 @@ function init(){
     current_player = player0;
     document.getElementById("player1").style.backgroundColor="#607d8bf2"
     document.getElementById("player0").style.backgroundColor="#90a4aef2"
-    do{
-        win_score = parseInt(document.getElementById("win_score").value,10);
-    }while(win_score===0);
-    console.log("i am here");
+    
+    win_score = parseInt(document.getElementById("win_score").value,10);
+    if(win_score>0){
+        
+    }else{
+        win_score = 100;
+    }
+    
     game_ended = false;
 }
 
@@ -91,7 +95,7 @@ function hold(){
 }
 
 function checkWinContition(){
-    if(current_player.total>=50){
+    if(current_player.total>=win_score){
         game_ended = true;
         document.getElementById("p_name_"+turn).innerHTML="WINNER !"
     }
