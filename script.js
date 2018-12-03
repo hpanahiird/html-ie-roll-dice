@@ -3,6 +3,7 @@ var img_dice = document.getElementById("img_dice");
 var turn;
 var game_ended = true;
 var win_score
+var prev;
 
 function Player(){
     this.total = 0;
@@ -28,11 +29,12 @@ function init(){
     }else{
         win_score = 100;
     }
-    
+    prev = 0;
     game_ended = false;
 }
 
 function changeTurn(){
+    prev=0;
     if(turn===0)
             t=1
         else if(turn===1)
@@ -77,7 +79,17 @@ function addCurrentScore(num){
     if(num===1){
         current_player.current=0;
         changeTurn();
+    }else if(num===6){
+        if (prev===6){
+            current_player.current=0;
+            current_player.total=0;
+            changeTurn();
+        }else{
+            prev = 6;
+            current_player.current += num;
+        }
     }else{
+        prev = num;
         current_player.current += num;
     }
     updateUI();
