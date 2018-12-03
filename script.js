@@ -14,10 +14,17 @@ var current_player;
 function init(){
     
     img_dice.style.display="none";
-    setTurn(0);
+    turn = 0;
+    current_player = player0;
+    document.getElementById("player1").style.backgroundColor="#607d8bf2"
+    document.getElementById("player0").style.backgroundColor="#90a4aef2"
 }
 
-function setTurn(t){
+function changeTurn(){
+    if(turn===0)
+            t=1
+        else if(turn===1)
+            t=0;
     turn=t;
     if(t===0){
         current_player = player0;
@@ -57,13 +64,17 @@ function setDiceImage(num){
 function addCurrentScore(num){
     if(num===1){
         current_player.current=0;
-        if(turn===0)
-            setTurn(1)
-        else if(turn===1)
-            setTurn(0);
+        changeTurn();
     }else{
         current_player.current += num;
     }
+    updateUI();
+}
+
+function hold(){
+    current_player.total += current_player.current;
+    current_player.current = 0;
+    changeTurn();
     updateUI();
 }
 
@@ -71,9 +82,11 @@ function updateUI(){
     
     document.getElementById("p_cu_score_0").innerHTML=player0.current;
     document.getElementById("p_cu_score_1").innerHTML=player1.current;
+    document.getElementById("p_score_0").innerHTML=player0.total;
+    document.getElementById("p_score_1").innerHTML=player1.total;
     
 }
 
 
-
+document.getElementById("hold").onclick=hold;
 document.getElementById("roll").onclick=roll;
