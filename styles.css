@@ -45,11 +45,11 @@ body {
 	margin:auto;
 }
 
-.new_game{
+#new_game{
 	top:20;
 }
 
-.img_dice{
+#img_dice{
 	width: 70;
 	content: url("img/dice-6.png");
 	display: block;
@@ -58,15 +58,15 @@ body {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.roll{
+#roll{
 	top:250;
 }
 
-.hold{
+#hold{
 	top:300;
 }
 
-.in_score{
+#in_score{
 	width:80;
 	top:350;
 	bottom: auto;

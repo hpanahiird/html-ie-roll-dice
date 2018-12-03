@@ -4,35 +4,38 @@
 		<link rel="stylesheet" href="styles.css">
 		<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 		<link rel="shortcut icon" href="img/icon.jpg" />
+        
+
 	</head>
 	<body>
 		<div class="main">
 			<div class="panel" id="player0">
-				<p class="p_element p_name">Player 0</p>
-				<p class="p_element p_score">0</p>
-				<div class="p_element p_current">
-					<p class="p_element current">Current</p>
-					<p class="p_element p_cu_score">0</p>
+				<p class="p_element p_name" id="p_name_0">Player 0</p>
+				<p class="p_element p_score" id="p_score_0">0</p>
+				<div class="p_element p_current" id="p_current_0">
+					<p class="p_element current" id="current_0">Current</p>
+					<p class="p_element p_cu_score" id="p_cu_score_0">0</p>
 				</div>
 			</div>
 			
 			<div class="panel" id="player1">
-				<p class="p_element p_name">Player 1</p>
-				<p class="p_element p_score">0</p>
-				<div class="p_element p_current">
-					<p class="p_element current">Current</p>
-					<p class="p_element p_cu_score">0</p>
+				<p class="p_element p_name" id="p_name_1">Player 1</p>
+				<p class="p_element p_score" id="p_score_1">0</p>
+				<div class="p_element p_current" id="p_current_1">
+					<p class="p_element current" id="current_1">Current</p>
+					<p class="p_element p_cu_score" id="p_cu_score_1">0</p>
 				</div>
 			</div>
 			
 			<div class="controls">
-				<p class="mainc new_game"><span class="lnr lnr-sync"></span>  New Game</p>
-				<img class="mainc img_dice"/>
-				<p class="mainc roll"><span class="lnr lnr-dice"></span>  Roll Dice</p>
-				<p class="mainc hold"><span class="lnr lnr-hand"></span>  Hold</p>
-				<input class="mainc in_score" type="text" name="input" value="score"/>
+				<div class="mainc" id="new_game"><span class="lnr lnr-sync"></span>  New Game</div>
+				<img class="mainc" id="img_dice"/>
+				<p class="mainc" id="roll"><span class="lnr lnr-dice"></span>  Roll Dice</p>
+				<p class="mainc" id="hold"><span class="lnr lnr-hand"></span>  Hold</p>
+				<input class="mainc" id="in_score" type="text" name="input" value="score"/>
 			</div>
 			
 		</div>
+        <script src="script.js"></script>
 	</body>
 </html>
