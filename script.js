@@ -25,6 +25,8 @@ function init(){
     document.getElementById("player1").style.backgroundColor="#607d8bf2"
     document.getElementById("player0").style.backgroundColor="#90a4aef2"
     
+    document.getElementById("p_idicator_"+turn).style.display=''
+    
     win_score = parseInt(document.getElementById("win_score").value,10);
     if(win_score>0){
         
@@ -40,7 +42,9 @@ function changeTurn(){
             t=1
         else if(turn===1)
             t=0;
+    document.getElementById("p_idicator_"+turn).style.display="none"
     turn=t;
+    document.getElementById("p_idicator_"+turn).style.display=''
     if(t===0){
         current_player = player0;
         document.getElementById("player1").style.backgroundColor="#607d8bf2"
@@ -131,6 +135,8 @@ function newGame(){
     updateUI();
 }
 
+document.getElementById("p_idicator_0").style.display="none"
+document.getElementById("p_idicator_1").style.display="none"
 img_dice1.style.display="none";
 img_dice2.style.display="none";
 document.getElementById("hold").onclick=hold;
