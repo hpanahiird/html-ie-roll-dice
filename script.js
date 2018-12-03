@@ -1,8 +1,15 @@
-window.alert("Welcome To Roll Dice Game :)");
 
-function s() {
-    console.log("lngng")
-    window.alert("new game!");
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function roll(){
     
-};
-document.getElementById("new_game").onclick=s;   
+    num = getRandomInt(1,6);
+    console.log(num);
+    img_dice.src = "img/dice-"+num+".png";
+}
+
+document.getElementById("roll").onclick=roll;
