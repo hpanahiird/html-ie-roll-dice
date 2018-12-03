@@ -42,15 +42,18 @@ body {
 	
 	font-size:20;
 	
-	margin:auto;
+	margin:0 auto;
+    height: 20;
 }
 
 #new_game{
 	top:20;
+    
 }
 
 #img_dice{
 	width: 70;
+    height: 70;
 	content: url("img/dice-6.png");
 	display: block;
     margin:0 auto;
