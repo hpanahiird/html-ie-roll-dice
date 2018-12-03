@@ -1,6 +1,7 @@
 var img_dice = document.getElementById("img_dice");
 
 var turn;
+var game_ended = false;
 
 function Player(){
     this.total = 0;
@@ -46,10 +47,11 @@ function getRandomInt(min, max) {
 }
 
 function roll(){
-    
-    num = getRandomInt(1,6);
-    console.log(num);
-    setDiceImage(num);
+    if(!game_ended){
+        num = getRandomInt(1,6);
+        console.log(num);
+        setDiceImage(num);
+    }
     
     
 }
@@ -72,10 +74,21 @@ function addCurrentScore(num){
 }
 
 function hold(){
-    current_player.total += current_player.current;
-    current_player.current = 0;
-    changeTurn();
-    updateUI();
+    if(!game_ended){
+        current_player.total += current_player.current;
+        current_player.current = 0;
+        checkWinContition();
+        if(!game_ended)
+            changeTurn();
+        updateUI();
+    }
+}
+
+function checkWinContition(){
+    if(current_player.total>=50){
+        game_ended = true;
+        document.getElementById("p_name_"+turn).innerHTML="WINNER !"
+    }
 }
 
 function updateUI(){
