@@ -1,9 +1,10 @@
-var img_dice = document.getElementById("img_dice");
+var img_dice1 = document.getElementById("img_dice_1");
+var img_dice2 = document.getElementById("img_dice_2");
 
 var turn;
 var game_ended = true;
-var win_score
-var prev;
+var win_score;
+
 
 function Player(){
     this.total = 0;
@@ -17,7 +18,8 @@ var current_player;
 function init(){
     player0 = new Player();
     player1 = new Player();
-    img_dice.style.display="none";
+    img_dice1.style.display="none";
+    img_dice2.style.display="none";
     turn = 0;
     current_player = player0;
     document.getElementById("player1").style.backgroundColor="#607d8bf2"
@@ -29,12 +31,11 @@ function init(){
     }else{
         win_score = 100;
     }
-    prev = 0;
+    
     game_ended = false;
 }
 
 function changeTurn(){
-    prev=0;
     if(turn===0)
             t=1
         else if(turn===1)
@@ -60,37 +61,31 @@ function getRandomInt(min, max) {
 
 function roll(){
     if(!game_ended){
-        num = getRandomInt(1,6);
-        console.log(num);
-        setDiceImage(num);
+        num1 = getRandomInt(1,6);
+        num2 = getRandomInt(1,6);
+//        console.log(num);
+        setDiceImage(num1, num2);
     }
     
     
 }
 
-function setDiceImage(num){
-    if(img_dice.style.display!=="block")
-        img_dice.style.display="block";
-    img_dice.src = "img/dice-"+num+".png";
-    addCurrentScore(num);
+function setDiceImage(num1 , num2){
+    if(img_dice1.style.display!=="block")
+        img_dice1.style.display="block";
+    if(img_dice2.style.display!=="block")
+        img_dice2.style.display="block";
+    img_dice1.src = "img/dice-"+num1+".png";
+    img_dice2.src = "img/dice-"+num2+".png";
+    addCurrentScore(num1, num2);
 }
 
-function addCurrentScore(num){
-    if(num===1){
+function addCurrentScore(num1, num2){
+    if(num1===1 || num2 ===1){
         current_player.current=0;
         changeTurn();
-    }else if(num===6){
-        if (prev===6){
-            current_player.current=0;
-            current_player.total=0;
-            changeTurn();
-        }else{
-            prev = 6;
-            current_player.current += num;
-        }
     }else{
-        prev = num;
-        current_player.current += num;
+        current_player.current += num1+num2;
     }
     updateUI();
 }
@@ -136,7 +131,8 @@ function newGame(){
     updateUI();
 }
 
-img_dice.style.display="none";
+img_dice1.style.display="none";
+img_dice2.style.display="none";
 document.getElementById("hold").onclick=hold;
 document.getElementById("roll").onclick=roll;
 document.getElementById("new_game").onclick=newGame;
